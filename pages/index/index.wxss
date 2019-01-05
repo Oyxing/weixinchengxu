@@ -1,0 +1,29 @@
+/**index.wxss**/
+page{
+  padding: 0px;
+  margin: 0px;
+}
+.navbox {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  bottom: 0px;
+}
+.navbox view {
+  float: left;
+  width: 33%;
+  height: 100%;
+  text-align: center;
+}
+.navbox view label:nth-child(1){
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-size: 100%;
+}
+.navbox view label:nth-child(2){
+   display: inline-block;
+  width: 100%;
+  font-size: 15px;
+  color: #ccc;
+}

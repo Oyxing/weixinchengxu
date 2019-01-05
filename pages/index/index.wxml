@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="indexbox">
+  <view>
+      <component-home wx:if="{{name == 'home'}}"></component-home>
+      <component-activity wx:if="{{name == 'activity'}}"></component-activity>
+      <component-user wx:if="{{name == 'user'}}"></component-user>
+  </view>
+  <view class="navbox">
+  <view wx:for="{{navdata}}" data-index="{{idx}}" wx:for-index="idx" wx:key="idx" data-name="{{item.name}}"  data-url="{{item.url}}"  bindtap='bindpitchid'>
+    <label style="background-image:url({{pitchid == idx?item.imgtrue:item.img}});background-repeat:no-repeat;"></label>
+    <label style="color:{{pitchid == idx?'#e16531':'#ccc'}}">{{item.litle}}</label>
+  </view>
+</view>
+</view>
