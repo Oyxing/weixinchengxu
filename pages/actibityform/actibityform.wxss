@@ -1,24 +1,30 @@
 /* pages/actibityform/actibityform.wxss */
 
 .actibityformbox{
-  position: relative;
-  top: 20px;
+  position: fixed;
   width: 100%;
+  overflow-x: none;
+  overflow-y:scroll;
+  height: 100vh;
   background: #f3f2f7;
 }
 .actibityformbox .image{
   width: 80%;
   height: 130px;
-  background: #fff;
+  background: red;
+  margin:20px 10%;
+
 }
 .actibityformbox .form {
   width: 100%;
   background: #fff;
-  margin: 170px auto;
+  margin: 10px auto;
 }
 .formbox{
   padding: 10px 0px 10px 10px;
-
+  border-top-style: solid;
+  border-top-width: 0.5px;
+  border-top-color: #f3f2f7
 }
 .formbox .formimg{
   display: inline-block;
@@ -29,14 +35,13 @@
   margin-top: 5px;
 }
 .formbox .formtitle{
-  position: relative;
   line-height: 25px;
   margin-left: 5px;
   font-size: 30rpx;
 }
 .formbox .frommsg input,.formbox .frommsg text{
   float: right;
-  min-width: 25%;
+  text-align: right;
   font-size: 30rpx;
   margin-right: 10px;
 }
@@ -45,11 +50,24 @@
   font-size: 30rpx;
   margin-right: 10px;
 }
+.formbox .frommsg switch{
+   float: right;
+  font-size: 30rpx;
+  margin-right: 10px;
+}
+
 .formbox textarea{
   height: 50px;
 }
+
 .moreset{
-  margin-top: 20px;
+  background: #fff;
+  padding: 10px;
+  font-size: 30rpx;
+}
+.moreset .Options{
+  padding: 10px 10px;
+  cursor: pointer;
 }
 .moreset .Options label{
   float: right;
@@ -57,6 +75,12 @@
   height: 16px;
   background-repeat: no-repeat;
   background-size: 100%;
-  margin-right: 20px;
+}
+.submit{
+  padding: 20px;
+  margin-top: 10px;
 }
 
+.rich-text {
+  overflow: hidden;
+}

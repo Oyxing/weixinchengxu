@@ -1,5 +1,4 @@
 const app = getApp()
-
 Page({
   data: {
     // 用户信息

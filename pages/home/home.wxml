@@ -1,6 +1,6 @@
 <!--pages/user/home.wxml-->
 <component-topnav inner-title="团起来" is-show-back="false"></component-topnav> 
-<view>
+<view class="homebox">
  <navigator
     url="../actibityform/actibityform"
   >

@@ -1,13 +1,13 @@
 <!--pages/actibityform/actibityform.wxml-->
 <component-topnav inner-title="添加活动" is-show-back="true"></component-topnav> 
 <view class="actibityformbox">
-  <view class="image" ></view>
-  <view class="form">
+    <view class="image"></view>
+    <view class="form">
         <view class="formbox">
           <label class="formimg" style="background-image: url('http://www.89yxing.top/images/theme.png')"></label>
           <label class="formtitle">主题</label>
           <label class="frommsg">
-            <input name="theme" placeholder="活动主题" auto-focus />
+            <input name="theme" placeholder="活动主题" />
           </label>
         </view>   
         <view class="formbox"> 
@@ -35,17 +35,49 @@
           </label>
         </view>   
         <view class="formbox">
-          <textarea
-            name="presentation"
-            placeholder="请输入内容"
-            cursor-spacing="10px"
-          />
+          <textarea placeholder='请输入文本' bindblur='textarea' value='' hidden='{{isfouce}}'></textarea> 
+          <view bindtap='isfouce' hidden='{{!isfouce}}' style="color:{{textareaVal.length != 0?'#000':'#ccc'}}">{{textareaVal.length != 0?textareaVal:'请输入文本'}}</view> 
         </view>   
-  </view>
-  <view class="moreset">
-      <view class="Options">
-          <text>更多选项</text>
-          <label style="background-image: url('http://www.89yxing.top/images/direction.png')"></label> 
-      </view>
-  </view>
+    </view>
+    <view class="moreset">
+        <view class="Options" bindtap="bindtapOptions">
+            <text>更多选项</text>
+            <label style="background-image: url('http://www.89yxing.top/images/direction.png')" animation="{{animationOption}}"></label> 
+        </view>
+        <view wx:if="{{optionsbool}}">
+          <view class="formbox">
+              <label class="formimg" style="background-image: url('http://www.89yxing.top/images/time.png')"></label>
+              <label class="formtitle">时长</label>
+              <label class="frommsg">
+                  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">{{array[index]}}</view>
+                  </picker>
+              </label>
+          </view> 
+          <view class="formbox">
+              <label class="formimg" style="background-image: url('http://www.89yxing.top/images/money.png')"></label>
+              <label class="formtitle">AA</label>
+              <label class="frommsg">
+                   <switch />
+              </label>
+          </view>     
+          <view class="formbox">
+              <label class="formimg" style="background-image: url('http://www.89yxing.top/images/tag.png')"></label>
+              <label class="formtitle">参加后不允许取消</label>
+              <label class="frommsg">
+                  <switch />
+              </label>
+          </view>   
+           <view class="formbox">
+              <label class="formimg" style="background-image: url('http://www.89yxing.top/images/staff.png')"></label>
+              <label class="formtitle">限定人数</label>
+              <label class="frommsg">
+                  <switch />
+              </label>
+          </view>   
+        </view>
+    </view>
+    <view class="submit">
+      <button>发起活动</button>
+    </view>
 </view>
