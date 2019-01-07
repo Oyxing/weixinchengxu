@@ -5,9 +5,13 @@ page{
 }
 .navbox {
   position: fixed;
+  background: #fff;
   width: 100%;
   height: 70px;
   bottom: 0px;
+  border-top-style: solid;
+  border-top-color: #d4d4d4;
+  border-top-width: 1px;
 }
 .navbox view {
   float: left;
@@ -20,6 +24,7 @@ page{
   width: 28px;
   height: 28px;
   background-size: 100%;
+  margin-top: 10px;
 }
 .navbox view label:nth-child(2){
    display: inline-block;

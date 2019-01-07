@@ -2,7 +2,7 @@
 .userbox{
   position: relative;
   width: 100%;
-  height: calc(100vh - 80px) ;
+  height: 100vh;
   background: #f3f2f7;
 }
 .userinfo {
@@ -45,10 +45,11 @@
 }
 .usermotto label:nth-child(2) {
   position: absolute;
+  height: 35px;
   margin-left: 30rpx;
   font-size: 28rpx;
   color: #8f908a;
-  margin-top: 20rpx;
+  line-height: 35px;
 }
 .usermotto label:nth-child(3) {
   float: right;

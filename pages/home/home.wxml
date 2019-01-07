@@ -1,2 +1,9 @@
 <!--pages/user/home.wxml-->
-<text>pages/user/home.wxml</text>
+<component-topnav inner-title="团起来" is-show-back="false"></component-topnav> 
+<view>
+ <navigator
+    url="../actibityform/actibityform"
+  >
+    填写信息
+  </navigator>
+</view>

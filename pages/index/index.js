@@ -6,8 +6,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    pitchid: 2,
-    name: 'user',
+    pitchid: 1,
+    name: 'home',
     navdata: [
       {
         name: "activity",

@@ -1,2 +1,3 @@
 <!--pages/activity/activity.wxml-->
+<component-topnav inner-title="团起来" is-show-back="false"></component-topnav> 
 <text>pages/activity/activity.wxml</text>

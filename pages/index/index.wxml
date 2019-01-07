@@ -1,4 +1,5 @@
 <!--index.wxml-->
+
 <view class="indexbox">
   <view>
       <component-home wx:if="{{name == 'home'}}"></component-home>

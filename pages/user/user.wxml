@@ -1,5 +1,5 @@
 <!--pages/user/user.wxml-->
-
+<component-topnav inner-title="我的" is-show-back="false"></component-topnav> 
 <view class="userbox">
    <view class="userinfo">
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

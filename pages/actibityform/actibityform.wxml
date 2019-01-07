@@ -1,0 +1,51 @@
+<!--pages/actibityform/actibityform.wxml-->
+<component-topnav inner-title="添加活动" is-show-back="true"></component-topnav> 
+<view class="actibityformbox">
+  <view class="image" ></view>
+  <view class="form">
+        <view class="formbox">
+          <label class="formimg" style="background-image: url('http://www.89yxing.top/images/theme.png')"></label>
+          <label class="formtitle">主题</label>
+          <label class="frommsg">
+            <input name="theme" placeholder="活动主题" auto-focus />
+          </label>
+        </view>   
+        <view class="formbox"> 
+          <label class="formimg" style="background-image: url('http://www.89yxing.top/images/time.png')"></label>
+          <label class="formtitle">时间</label>
+          <label class="frommsg">
+            <picker name="date" mode="time" value="{{time}}" start="{{timestart}}" bindchange="bindTimeChange">
+                <view class="picker">
+                  {{time}}
+                </view>
+            </picker>
+            <label>|</label>
+            <picker name="date" mode="date" value="{{date}}" start="{{datestart}}" bindchange="bindDateChange">
+              <view class="picker">
+                {{date}}
+              </view>
+            </picker>
+          </label>
+        </view>   
+        <view class="formbox">
+          <label class="formimg" style="background-image: url('http://www.89yxing.top/images/site.png')"></label>
+          <label class="formtitle">地点</label>
+          <label class="frommsg">
+              <text bindtap="getmap">{{sitedata.name}}</text>
+          </label>
+        </view>   
+        <view class="formbox">
+          <textarea
+            name="presentation"
+            placeholder="请输入内容"
+            cursor-spacing="10px"
+          />
+        </view>   
+  </view>
+  <view class="moreset">
+      <view class="Options">
+          <text>更多选项</text>
+          <label style="background-image: url('http://www.89yxing.top/images/direction.png')"></label> 
+      </view>
+  </view>
+</view>

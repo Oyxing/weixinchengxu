@@ -5,12 +5,16 @@
     "pages/bottomnav/bottomnav",
     "pages/home/home",
     "pages/activity/activity",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/actibityform/actibityform",
+    "pages/topnav/topnav"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "约起来",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "disableScroll": true
   }
 }

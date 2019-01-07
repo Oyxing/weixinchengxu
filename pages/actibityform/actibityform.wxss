@@ -1,0 +1,62 @@
+/* pages/actibityform/actibityform.wxss */
+
+.actibityformbox{
+  position: relative;
+  top: 20px;
+  width: 100%;
+  background: #f3f2f7;
+}
+.actibityformbox .image{
+  width: 80%;
+  height: 130px;
+  background: #fff;
+}
+.actibityformbox .form {
+  width: 100%;
+  background: #fff;
+  margin: 170px auto;
+}
+.formbox{
+  padding: 10px 0px 10px 10px;
+
+}
+.formbox .formimg{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: 5px;
+}
+.formbox .formtitle{
+  position: relative;
+  line-height: 25px;
+  margin-left: 5px;
+  font-size: 30rpx;
+}
+.formbox .frommsg input,.formbox .frommsg text{
+  float: right;
+  min-width: 25%;
+  font-size: 30rpx;
+  margin-right: 10px;
+}
+.formbox .frommsg picker, .formbox .frommsg label{
+  float: right;
+  font-size: 30rpx;
+  margin-right: 10px;
+}
+.formbox textarea{
+  height: 50px;
+}
+.moreset{
+  margin-top: 20px;
+}
+.moreset .Options label{
+  float: right;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-right: 20px;
+}
+
