@@ -1,6 +1,6 @@
 <!--pages/actibityform/actibityform.wxml-->
 <component-topnav inner-title="添加活动" is-show-back="true"></component-topnav> 
-<view class="actibityformbox">
+<scroll-view scroll-y style="height:calc(100vh - {{someData.statusBarHeight}}px - 40px)"  class="actibityformbox">
     <view class="image"></view>
     <view class="form">
         <view class="formbox">
@@ -78,6 +78,6 @@
         </view>
     </view>
     <view class="submit">
-      <button>发起活动</button>
+      <button>发 起 活 动</button>
     </view>
-</view>
+</scroll-view>

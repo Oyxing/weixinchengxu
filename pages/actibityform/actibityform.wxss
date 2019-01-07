@@ -1,12 +1,10 @@
 /* pages/actibityform/actibityform.wxss */
 
 .actibityformbox{
-  position: fixed;
   width: 100%;
-  overflow-x: none;
-  overflow-y:scroll;
   height: 100vh;
   background: #f3f2f7;
+  padding: 0px 0px 20px 0px;
 }
 .actibityformbox .image{
   width: 80%;
@@ -80,7 +78,9 @@
   padding: 20px;
   margin-top: 10px;
 }
-
-.rich-text {
-  overflow: hidden;
+.submit button{
+  border-radius: 20px;
+  background: #ff9632;
+  color: #fff;
+  font-size: 17px;
 }

@@ -57,7 +57,6 @@ Page({
     }
   },
   onReady: function () {
-    console.log("ASd")
   },
   bindpitchid(e) {
     this.setData({
