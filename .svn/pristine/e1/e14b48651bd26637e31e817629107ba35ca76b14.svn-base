@@ -1,0 +1,143 @@
+<!--pages/activitydetails/activitydetails.wxml-->
+<component-topnav inner-title="组局详情" to-home="true" is-show-back="true"></component-topnav> 
+  <scroll-view scroll-y class="box" style="height:calc(100vh - {{height}}px - {{titleBarHeight}}px - {{boxheight}})">
+    <!-- <button class="share" open-type='openSetting' style="top:calc({{height}}px + 50px)">
+        分享
+    </button> -->
+    <view class="share" bindtap='bindshare' style="top:calc({{height}}px + 50px)">
+        分享
+    </view>
+    <view class="img">
+      图片{{activit.type}}
+    </view>
+    <view class="people"> 
+      <label>
+          <label style="background-image: url({{activit.avatarUrl}})"></label>
+          由<text style="color:#f0f;">  {{activit.nickName}} </text>发起的
+      </label>
+      <label>{{activit.subject}}</label>
+    </view>
+    <view class="imgico site">
+      <view>
+          <label style="background-image: url('http://www.89yxing.top/images/time1.png')"></label>
+          <text>{{activit.starttimestr}}</text>
+      </view>
+      <view bindtap='getplace'>
+            <label style="background-image: url('http://www.89yxing.top/images/site1.png')"></label>
+            <text>{{activit.addrname}}</text>
+      </view>
+    </view>
+    <view class="imgico limit"> 
+      <view wx:if="{{activit.number}}">
+          <label style="background-image: url('http://www.89yxing.top/images/people1.png')"></label>
+          <text>人数限定:{{activit.number}}</text>
+      </view>
+      <view wx:if="{{activit.aa}}">
+          <label style="background-image: url('http://www.89yxing.top/images/money1.png')"></label>
+          <text>是否AA:{{activit.aa?"是":"否"}}</text>
+      </view>
+      <view>
+          <label style="background-image: url('http://www.89yxing.top/images/remark.png')"></label>
+          <text>备注说明:{{activit.remark}}</text>
+      </view>
+    </view>
+    <view class="map"> 
+      <navigator
+       hover-class="none"
+        url='../map/map?id={{activit.id}}&starttime={{activit.starttime}}'
+      >
+          <label class="imgico"  style="background-image: url('http://www.89yxing.top/images/site1.png')"></label>
+          <text>人都去哪里</text>
+          <label style="background-image: url('http://www.89yxing.top/images/page.png')"></label>
+           
+      </navigator>
+    </view>
+    <view class="map whopay" wx:if="{{whopaybool}}"> 
+      <navigator
+              hover-class="none"
+              class="gamenav"
+              target="miniProgram"
+              open-type="navigate"
+              app-id="wxafaccf187999bccd"
+              version="release"
+            >
+            <label class="gameico"></label>
+          </navigator>
+      <navigator
+        hover-class="none"
+        url="../game/game"
+      >
+          <label class="imgico"  style="background-image: url('http://www.89yxing.top/images/game.png')"></label>
+          <text>娱乐看谁买单</text>
+        </navigator>
+    </view>
+    <view class="participant"> 
+      <navigator 
+      hover-class="none"
+      url="../participate/participate?participatestr={{participatestr}}"
+      style='border-bottom:0.5px solid #ccc;padding-bottom:10px;'>
+        <label class="imgico" style="background-image: url('http://www.89yxing.top/images/people1.png')"></label>
+        <text>{{activit.userinfo.length}}人参与</text>
+        <label style="background-image: url('http://www.89yxing.top/images/page.png')"></label>
+      </navigator>
+      <block wx:for="{{participate}}" wx:key="key">
+          <view class="participantdetails">
+            <label class="imgico" style="background-image: url({{item.avatarUrl}})"></label>
+            <text class="text">{{item.nickName}}</text>
+          </view>
+      </block>
+    </view>
+    <view class="section">
+      <view style='border-bottom:0.5px solid #ccc;padding-bottom:10px;'>
+        <label class="imgico" style="background-image: url('http://www.89yxing.top/images/comment.png')"></label>
+        <text>评论 （0条）</text>
+        <label>
+            <navigator
+             hover-class="none"
+              url='../review/review'
+            >发表评论</navigator>
+          </label>
+      </view>
+      <block wx:for="{{commentdata}}" wx:key="key">
+          <view class="discussdetails">
+              <label class="image" style="background-image: url({{item.avatarUrl}});"></label>
+            <view class="boxleft">
+              <label>{{item.name}}</label>
+              <text>{{item.commentstr}}</text>
+            </view>
+            <view class="boxright">
+                  <label>{{item.time}}</label>
+                  <text data-delid="{{item.delid}}" bindtap='delcomment'>删除</text>
+              </view>
+          </view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="operate" wx:if="{{operatebool}}">
+    <navigator
+    hover-class="none"
+      wx:if="{{initiatorbool}}"
+      url="../actibityform/actibityform?actibityid=1"
+    >
+      <label style="background-image: url('http://www.89yxing.top/images/editor.png')"></label>
+      <label>编辑</label>
+    </navigator>
+    <view wx:if="{{!initiatorbool && !repeal}}" bindtap='joinactiviy'>
+      <label style="background-image: url('http://www.89yxing.top/images/join.png')"></label>
+      <label>参加</label>
+    </view> 
+    <view wx:if="{{repeal}}" bindtap='abolishactiviy'>
+      <label style="background-image: url('http://www.89yxing.top/images/repeal.png')"></label>
+      <label>取消</label>
+    </view>
+    <button open-type='share' bindtap='message'>
+      <label style="background-image: url('http://www.89yxing.top/images/staff1.png')"></label>
+      <text>邀请好友</text>
+    </button>
+  </view>
+  <scroll-view scroll-y class="shareimg" wx:if="{{shareimgbool}}"  style="top:{{height+titleBarHeight}}px;height:calc(100vh - {{titleBarHeight}}px)">
+        <canvas canvas-id="shareCanvas" style="position: fixed;top:-9999px;width:100%;height:100%;"></canvas>
+        <view class="close" bindtap='bindclose' style="background-image: url('http://www.89yxing.top/images/closed.png')" ></view>
+        <image class="shareImg" catchlongpress='saveImg' src="{{shareImg}}"></image> 
+  </scroll-view>
+

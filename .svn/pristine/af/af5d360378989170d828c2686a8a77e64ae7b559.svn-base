@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/bottomnav/bottomnav",
+    "pages/home/home",
+    "pages/activity/activity",
+    "pages/user/user",
+    "pages/actibityform/actibityform",
+    "pages/topnav/topnav",
+    "pages/activitydetails/activitydetails",
+    "pages/map/map",
+    "pages/feedback/feedback",
+    "pages/swiper/swiper",
+    "pages/participate/participate",
+    "pages/review/review",
+    "pages/game/game",
+    "pages/game/canvas/canvas"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "约起来",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "disableScroll": true
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxafaccf187999bccd"
+  ]
+}

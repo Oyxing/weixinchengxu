@@ -1,0 +1,59 @@
+
+const app = getApp()
+Component({
+  properties: {
+    // 这里定义了innerText属性，属性值可以在组件使用时指定
+    innerTitle: {
+      type: String,
+      value: '头部标题'
+    },
+    isShowBack: {
+      type: String,
+      value: "true"
+    },
+  },
+  data: {
+    // 这里是一些组件内部数据
+    height: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight,
+    activity:[
+      {
+       
+        id:1,
+        creator: 1,
+        join: 1,
+        theme:"主题",
+        time:"01-08 星期二 10:28",
+        site:"位置",
+        peoples:"2",
+        news:"2"
+      },
+      {
+
+        id: 2,
+        creator: 0,
+        join: 1,
+        theme: "主题",
+        time: "01-08 星期二 10:28",
+        site: "位置",
+        peoples: "2",
+        news: "2"
+      },
+      {
+
+        id: 3,
+        creator: 0,
+        join: 0,
+        theme: "主题",
+        time: "01-08 星期二 10:28",
+        site: "位置",
+        peoples: "2",
+        news: "2"
+      }
+    ]
+  },
+  methods: {
+    // 这里是一个自定义方法
+  
+  }
+})

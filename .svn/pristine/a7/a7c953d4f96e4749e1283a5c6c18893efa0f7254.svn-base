@@ -1,0 +1,115 @@
+
+const app = getApp()
+Component({
+  properties: {
+    // 这里定义了innerText属性，属性值可以在组件使用时指定
+    innerTitle: {
+      type: String,
+      value: '头部标题'
+    },
+    isShowBack: {
+      type: String,
+      value: "true"
+    },
+  },
+  data: {
+    // 这里是一些组件内部数据
+    height: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight,
+    activity:[
+      {
+       
+        id:13,
+        type:1,
+        creator: 1,
+        join: 1,
+        subject:"主题",
+        starttime: 1547454046,
+        starttimestr: app.timelayout(1547454046),
+        address:"位置",
+        addrname: "目的地",
+        peoples:"2",
+        news:"2",
+        userinfo:[]
+      }
+    ]
+  },
+  attached() {
+    const seft = this
+    wx.getStorage({
+      key: 'activity',
+      success(res) {
+        console.log("getStorage")
+        console.log(res.data)
+        seft.setData({
+          activity: res.data[0]
+        })
+      }
+    })
+    // 在组件实例进入页面节点树时执行
+    // 登录
+    var openid = ""
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        const json = {
+          url: 'http://10.1.1.172/getopenid',
+          data: {
+            nickName: app.globalData.userInfo.nickName,
+            avatarUrl: app.globalData.userInfo.avatarUrl
+          },
+          showcode: true
+        }
+        app.getAjax(json, (res) => {
+          openid = res.data.msg.openid
+          const json = {
+            url: 'http://10.1.1.172/getAllInfo',
+            data: {
+              openid: res.data.msg.openid,
+            },
+            method:"GET",
+            showcode: false
+          }
+          app.getAjax(json, (res) => {
+            for (var key in res.data.msg){
+              res.data.msg[key]["starttimestr"] = app.timelayout(res.data.msg[key].starttime)
+              res.data.msg[key]["news"] = 1
+              if (res.data.msg[key].originator == openid){
+                res.data.msg[key]["creator"] = 1
+              }else{
+                res.data.msg[key]["creator"] = 0
+                for (var keyuser in res.data.msg[key].userinfo){
+                  if (res.data.msg[key].userinfo[keyuser].openid == openid){
+                    res.data.msg[key]["join"] = 1
+                  }else{
+                    res.data.msg[key]["join"] = 0
+                  }
+                }
+              }
+            }
+            seft.setData({
+              activity: res.data.msg
+            })
+            console.log(res.data.msg)
+            wx.clearStorage()
+            // 展示本地存储能力
+            var activity = wx.getStorageSync('activity') || []
+            activity.unshift(res.data.msg)
+            wx.setStorageSync('activity', activity)
+            console.log("sds")
+          })
+        })
+      }
+    })
+
+  
+
+  },
+  detached() {
+    // 在组件实例被从页面节点树移除时执行
+  },
+  methods: {
+    // 这里是一个自定义方法
+  
+  }
+})

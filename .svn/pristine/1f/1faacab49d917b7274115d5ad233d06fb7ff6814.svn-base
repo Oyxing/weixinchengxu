@@ -1,0 +1,6 @@
+/* pages/home/home.wxss */
+.homebox{
+  background:#f3f2f7 ;
+  text-align: center;
+  height: 100vh;
+}

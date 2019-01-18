@@ -1,0 +1,138 @@
+const app = getApp()
+Page({
+  data: {
+    latitude: 23.099994,
+    longitude: 113.324520,
+    markers: [],
+    withintime:false
+  },
+  onReady(){
+    // 使用 wx.createMapContext 获取 map 上下文
+  },
+  onLoad(options) {
+    var seft = this
+    wx.getLocation({
+      success(res) {
+          seft.getuserinfo()
+          seft.getmarkers()
+      },
+      fail() {
+        wx.showModal({
+          title: '是否授权我的地理位置',
+          content: '需要授权我的地理位置，请确认授权，否则我的地理位置功能将无法使用',
+          success: function (res) {
+            if (res.cancel) {
+              wx.showToast({
+                title: '取消失败',
+                icon: 'success',
+                duration: 5000
+              })
+            } else if (res.confirm) {
+              wx.openSetting({
+                success: function (data) {
+                  if (data.authSetting["scope.userLocation"] == true) {
+                    wx.showToast({
+                      title: '授权成功',
+                      icon: 'success',
+                      duration: 5000
+                    })
+                    seft.getuserinfo()
+                    seft.getmarkers()
+                  } else {
+                    wx.showToast({
+                      title: '授权失败',
+                      icon: 'success',
+                      duration: 5000
+                    })
+                  }
+                }
+              })
+            }
+          }
+        })
+      }
+    })
+    console.log(options.id)
+    console.log(options.starttime)
+    var date = new Date()
+    var datenum = Date.parse(date) / 1000
+    if ((options.starttime - datenum) < 3600) {
+        this.setData({
+          withintime:true
+        })
+    } else {
+        this.setData({
+          withintime: false
+        })
+    }
+  },
+  getuserinfo(){
+    this.mapCtx = wx.createMapContext('map')
+    const that = this
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        that.setData({
+          latitude: latitude,
+          longitude: longitude,
+        })
+      }
+    })
+    this.mapCtx.getCenterLocation({
+      success(res) {
+        var userInfo = app.globalData.userInfo
+        var mapsite = res
+        var json = {
+          userInfo: userInfo,
+          mapsite: mapsite
+        }
+      }
+    })
+  },
+  getmarkers(){
+    var markers = [
+      {
+          iconPath: 'http://www.89yxing.top/images/mappeople.png',
+          id: 0,
+          latitude: 34.22515869140625,
+          longitude: 108.90612277560764,
+          width: 50,
+          height: 50,
+          label:{
+            content: "名",
+            color: "red",
+            fontSize: 16, 
+            anchorX: -25,
+            anchorY:-50,
+            bgColor:"#fff",
+            borderRadius:25
+          }
+      }
+      ]
+    this.setData({
+      markers: markers
+    })
+    
+  },
+  onShow(){
+    if (this.data.withintime){
+      // this.maptime = setInterval(()=>{
+        //   console.log(this.data.latitude)
+        //   console.log(this.data.longitude)
+        // },500)
+    }else{
+      wx.showToast({
+        title: '活动前面1小时内显示好友位置',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  
+
+  },
+  onUnload(){
+    // clearInterval(this.maptime)
+  }
+})

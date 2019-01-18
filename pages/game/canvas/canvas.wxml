@@ -1,0 +1,2 @@
+<!--pages/game/canvas/canvas.wxml-->
+<canvas canvas-id="myCanvas" style="border: 1px solid;"  style="width:100%;height:calc(100vh - {{statusBarHeight}}px - {{titleBarHeight}}px)"/>

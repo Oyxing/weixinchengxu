@@ -1,0 +1,10 @@
+<!--pages/map/map.wxml-->
+<component-topnav inner-title="人都去哪里了" to-home="false" is-show-back="true"></component-topnav> 
+<map
+  id="map"
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  subkey="74GBZ-J5UHJ-2N7FW-FKAO2-O6XOV-3FFFH"
+  markers="{{markers}}"
+  show-location
+></map>

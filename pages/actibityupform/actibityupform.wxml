@@ -1,0 +1,93 @@
+<!--pages/actibityform/actibityform.wxml-->
+<component-topnav inner-title="添加活动" to-home="false" is-show-back="true"></component-topnav> 
+<scroll-view scroll-y style="height:calc(100vh - {{someData.statusBarHeight}}px - {{someData.titleBarHeight}}px)"  class="actibityformbox">
+    <view class="image">
+     <image src="{{image[type - 1]}}" class="slide-image" />
+    </view>
+   <form bindsubmit="formSubmit" bindreset="formReset"> 
+      <view class="form">
+          <view class="formbox">
+            <label class="formimg" style="background-image: url('http://www.89yxing.top/images/theme.png')"></label>
+            <label class="formtitle">主题</label>
+            <label class="frommsg">
+              <input name="subject" placeholder="活动主题" value="{{subject}}"/>
+            </label>
+          </view>    
+          <view class="formbox"> 
+            <label class="formimg" style="background-image: url('http://www.89yxing.top/images/time.png')"></label>
+            <label class="formtitle">时间</label>
+            <label class="frommsg">
+              <picker name="time" mode="time" value="{{time}}" start="{{timestart}}" bindchange="bindTimeChange">
+                  <view class="picker">
+                    {{time}}
+                  </view> 
+              </picker> 
+              <label>|</label>
+              <picker name="date" mode="date" value="{{date}}" start="{{datestart}}" bindchange="bindDateChange">
+                <view class="picker">
+                  {{date}}
+                </view>
+              </picker>
+            </label>
+          </view>   
+          <view class="formbox">
+            <label class="formimg" style="background-image: url('http://www.89yxing.top/images/site.png')"></label>
+            <label class="formtitle">地点</label>
+            <label class="frommsg" bindtap="getmap">
+                <text >{{sitedata.name}}</text>
+            </label>
+          </view>   
+          <view class="formbox">
+            <textarea placeholder='请输入文本' bindblur='textarea' value='' hidden='{{isfouce}}'></textarea> 
+            <view bindtap='isfouce' hidden='{{!isfouce}}' style="color:{{textareaVal.length != 0?'#000':'#ccc'}}">{{textareaVal.length != 0?textareaVal:'请输入文本'}}</view> 
+          </view>   
+      </view>
+      <view class="moreset">
+          <view class="Options" bindtap="bindtapOptions">
+              <text>更多选项</text>
+              <label style="background-image: url('http://www.89yxing.top/images/direction.png')" animation="{{animationOption}}"></label> 
+          </view>
+          <view wx:if="{{optionsbool}}">
+            <view class="formbox">
+                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/timelen.png')"></label>
+                <label class="formtitle">时长</label>
+                <label class="frommsg">
+                  <picker name="duration" mode="selector" bindchange="bindDurationChange" value="{{index}}" range="{{array}}">
+                      <view class="picker">{{array[index]}}</view>
+                  </picker>
+                </label>
+            </view> 
+            <view class="formbox">
+                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/money.png')"></label>
+                <label class="formtitle">AA</label>
+                <label class="frommsg">
+                    <switch name="aa" checked="{{aa?true:false}}" />
+                </label>
+            </view>     
+            <view class="formbox">
+                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/tag.png')"></label>
+                <label class="formtitle">参加后不允许取消</label>
+                <label class="frommsg">
+                    <switch name="allow" checked="{{allow?true:false}}"/>
+                </label>
+            </view>   
+            <view class="formbox">
+                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/people.png')"></label>
+                <label class="formtitle">限定人数</label>
+                <label class="frommsg">
+                    <switch bindchange="peoplechange" checked="{{number?true:false}}"/>
+                </label>
+            </view>   
+            <view class="formbox" wx:if="{{formboxpeople}}" style="padding:20rpx 0rpx 40rpx 20rpx;">
+                <label class="frommsg">
+                    <slider name="number" value="{{number}}" min="2" max="30" show-value />
+                </label>
+            </view>  
+          </view>
+      </view>
+      <view class="submit">
+        <button form-type="submit" disabled="{{btndisabled}}">更 新 活 动</button>
+        <button style="background:#fff;color:#ccc;" disabled="{{btndisabled}}" bindtap='abolish' >取 消 活 动</button>
+      </view>
+    </form>
+</scroll-view>

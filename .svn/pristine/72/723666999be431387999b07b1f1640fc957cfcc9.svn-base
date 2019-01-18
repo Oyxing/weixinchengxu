@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<component-topnav inner-title="用户登录" to-home="false" is-show-back="false"></component-topnav> 
+<view class="login">
+      <image src='/images/logo.jpg'></image>
+      <view>
+        <label>
+          组聚达人  申请获得以下权限
+        </label>
+        <label>
+          获得你的公开信息（昵称、头像、地区及性别）
+        </label>
+      </view>
+   <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获 取 头 像 昵 称 </button>
+</view>

@@ -1,0 +1,35 @@
+/* pages/participate/participate.wxss */
+.box{
+  width: 100%;
+  height: 100vh;
+  background: #f3f2f7;
+}
+.box .details{
+  padding: 20rpx 20rpx;
+  background: #fff;
+}
+.box .details .img{
+  float: left;
+  width: 60rpx;
+  height: 60rpx;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+.box .details text{
+  display: inline-block;
+  line-height: 30rpx;
+ 
+}
+.box .details .initiator{
+  float: right;
+  margin-right: 20px;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  color: #ccc;
+}
+.box .details text{
+  font-size: 30rpx;
+}

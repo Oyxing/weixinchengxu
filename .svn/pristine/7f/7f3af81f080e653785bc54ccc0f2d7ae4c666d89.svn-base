@@ -1,0 +1,32 @@
+const app = getApp()
+Component({
+  properties: {
+   
+  },
+  data: {
+    indicatorDots: true,
+    autoplay: false,
+    interval: 5000,
+    duration: 1000,
+    height: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight,
+    imgurl:[
+      {
+        background:"#59b6e6",
+        type:"1"
+      },
+      {
+        background:"#ff0",
+        type: "2"
+      },
+      {
+        background: "#e26936",
+        type: "3"
+      }
+    ]
+  },
+  methods: {
+    // 这里是一个自定义方法
+    
+  }
+})

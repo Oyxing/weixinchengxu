@@ -1,0 +1,16 @@
+/* pages/game/game.wxss */
+
+.bindstart {
+  position: fixed;
+  bottom: 30rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius:50%;
+  left: 0rpx;
+  right: 0rpx;
+  margin: auto;
+  background: #dc4c40;
+  font-size: 30rpx;
+  text-align: center;
+  line-height:160rpx;
+}

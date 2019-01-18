@@ -1,0 +1,255 @@
+/* pages/activitydetails/activitydetails.wxss */
+.box{
+  width: 100%;
+  background: #f3f2f7;
+  font-size: 30rpx;
+}
+.share{
+  position: fixed;
+  padding: 5rpx;
+  right: 10rpx;
+  z-index: 9;
+}
+.shareimg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.438);
+  z-index: 99;
+}
+.shareimg .close{
+  position:fixed;
+  width:40rpx;
+  height:40rpx;
+  margin-top:4px;
+  right:4px;
+  background-repeat:no-repeat;
+  background-size:100%;
+  z-index: 999;
+}
+.shareimg .shareImg{
+  position: fixed;
+  padding: 0px;
+  top:0px;
+  bottom:0px;
+  left: 0px;
+  right: 0px;
+  z-index: 99;
+}
+.operate{
+  position: fixed;
+  width: 100%;
+  height: 120rpx;
+  bottom:0px;
+  background: #fff;
+  line-height: 120rpx;
+  font-size: 35rpx;
+}
+
+.operate button{
+  height: 100%;
+  background: #fff;
+  
+}
+.operate button label{
+  display: inline-block;
+  width: 50rpx;
+  height: 50rpx;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin:-10rpx 10rpx;
+  margin-right: 20rpx;
+}
+.operate button text{
+  font-size: 30rpx;
+  line-height: 120rpx;
+}
+.operate view,.operate navigator{
+  float: left;
+  width: 49%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.operate view label:nth-child(1),.operate navigator label:nth-child(1){
+  display: inline-block;
+  width: 64rpx;
+  height: 64rpx;
+  background-size: 100%;
+  margin:-10rpx 10rpx;
+  background-repeat: no-repeat;
+}
+.operate view label:nth-child(2),.operate navigator label:nth-child(2){
+  display: inline-block;
+  line-height: 120rpx;
+}
+
+/* 图片 */
+.box .img{
+  width: 100%;
+  height: 130px;
+  background: #ff0;
+  text-align: center;
+}
+/* 发起人 */
+.box .people{
+  padding: 10rpx 15rpx;
+  background: #fff;
+}
+.box .people label:nth-child(1){
+   display: inline-block;
+    width: 100%
+}
+.box .people label:nth-child(1) label{
+  float: left;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius:50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-bottom: -10px;
+  margin-right: 10px;
+}
+.box .people label:nth-child(1) text{
+  line-height: 60rpx;
+}
+.box .people label:nth-child(2){
+  display: inline-block;
+  margin-top: 10rpx;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/*  位置  点击地图 限制 参与人 评论区*/
+.box .site,.box .limit,.box .participant{
+  margin-top: 10rpx;
+  background: #fff;
+}
+.imgico view{
+  padding: 20rpx 0rpx;
+  margin-left: 30rpx;
+}
+.imgico view label{
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-right: 30rpx;
+}
+.imgico view text{
+  line-height: 40rpx;
+}
+.box .map,.box .participant,.box .section{
+  margin-top: 10rpx;
+  background: #fff;
+  padding: 30rpx 0rpx;
+}
+.map .imgico,.participant .imgico,.section .imgico{
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+} 
+
+.map label:nth-child(3),.participant label:nth-child(3){
+  float: right;
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+.section label:nth-child(3){
+  color: #ff9632;
+  float: right;
+  margin-right: 20rpx;
+}
+ 
+.participantdetails{
+  padding: 10rpx 0rpx;
+  border-bottom: 0.5rpx solid #ccc;
+}
+.participantdetails label{
+  display: inline-block;
+}
+.participantdetails .boxright label,.participantdetails .boxright label{
+  width: 100%;
+}
+
+.participantdetails .imgico{
+  float: left;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.participantdetails .text{
+   line-height: 60rpx;
+}
+.discussdetails{
+  height: 100rpx;
+  padding: 10rpx 0px;
+  border-bottom: 0.5rpx solid #ccc;
+}
+.discussdetails .image{
+  float: left;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius:50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-right: 30rpx;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.discussdetails .boxleft{
+  float: left;
+  width: 130rpx;
+}
+.discussdetails .boxleft label,.discussdetails .boxleft text{
+  width: 100%;
+  display: inline-block;
+  line-height: 50rpx;
+}
+.discussdetails .boxleft text{
+  color: #ccc;
+}
+.discussdetails .boxright{
+  float: right;
+  margin-right: 20rpx;
+}
+.discussdetails .boxright text,.discussdetails .boxright label{
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+.discussdetails .boxright label{
+  line-height: 50rpx;
+  color: #ccc;
+}
+.discussdetails .boxright text{
+  color: #ff9632;
+}
+/* 娱乐 */
+
+.whopay .gamenav{
+  float: right;
+  margin-right: 30rpx;
+  margin-top: -20rpx;
+  z-index: 9;
+}
+.whopay .gameico{
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background:url('http://www.89yxing.top/images/256.png');
+  background-position: center;
+  background-size:100%;
+  background-repeat:no-repeat;
+}

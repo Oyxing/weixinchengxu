@@ -1,0 +1,30 @@
+/* pages/login/login.wxss */
+.login{
+  width: 70%;
+  height: 80%;
+  margin: 120rpx auto;
+  text-align: center;
+}
+.login image{
+  width: 160rpx;
+  height: 160rpx;
+  
+}
+.login label{
+  display: inline-block;
+  margin: 20rpx 0px;
+
+}
+.login label:nth-child(1){
+  font-size: 35rpx;
+}
+.login label:nth-child(2){
+  font-size: 27rpx;
+  color: #ccc;  
+}
+.login button{
+  border-radius:50rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #ff9632;
+}

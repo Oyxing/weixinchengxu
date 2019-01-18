@@ -28,7 +28,7 @@ Page({
       }
     ]
   },
-  onLoad(){
+  onLoad(options){
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -55,8 +55,12 @@ Page({
         }
       })
     }
-  },
-  onReady: function () {
+    if (options.name){
+      this.setData({
+        pitchid: options.pitchid,
+        name: options.name
+      })
+    }
   },
   bindpitchid(e) {
     this.setData({

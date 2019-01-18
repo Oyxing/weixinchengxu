@@ -1,0 +1,7 @@
+<!--pages/bottomnav/bottomnav.wxml-->
+<view class="navbox">
+  <view wx:for="{{navdata}}" data-index="{{idx}}" wx:for-index="idx" wx:key="idx" data-url="{{item.url}}"  bindtap='bindpitchid'>
+    <label style="background-image:url({{pitchid == idx?item.imgtrue:item.img}});background-repeat:no-repeat;"></label>
+    <label style="color:{{pitchid == idx?'#e16531':'#ccc'}}">{{item.litle}}</label>
+  </view>
+</view>

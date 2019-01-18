@@ -1,0 +1,5 @@
+<!--pages/user/home.wxml-->
+<component-topnav inner-title="聚起来" to-home="false" is-show-back="false"></component-topnav> 
+<scroll-view scroll-y class="homebox">
+    <component-swiper></component-swiper>
+</scroll-view>

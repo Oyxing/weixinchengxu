@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "component-home": "../home/home",
+    "component-activity": "../activity/activity",
+    "component-user": "../user/user"
+  }
+}

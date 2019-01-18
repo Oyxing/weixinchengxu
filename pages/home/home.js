@@ -14,7 +14,8 @@ Component({
   },
   data: {
     // 这里是一些组件内部数据
-
+    height: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight,
   },
   methods: {
     // 这里是一个自定义方法

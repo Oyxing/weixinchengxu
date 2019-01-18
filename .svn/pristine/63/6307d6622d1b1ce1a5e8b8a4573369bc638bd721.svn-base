@@ -1,0 +1,86 @@
+// pages/game/game.js
+const app = getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      statusBarHeight: app.globalData.statusBarHeight,
+      titleBarHeight: app.globalData.titleBarHeight,
+      payname:"1",
+      startbool: true,
+      joinuser:[1,2,3,4,5,"q7",18,9,10,0,23],
+      payindex:1,
+      slidernum:40,
+      touches:[]
+  },
+  onReady(){
+    const context = wx.createCanvasContext('myCanvas')
+    const touchesarr = [{ identifier: 0, x: 271, y: 357 }, { identifier: 0, x: 231, y: 437 }]
+    const colorarr = ["red", "#ff0", "#f0f", "#888888", "#ff9632", "#381100", "#00c777", "##00b26a"] 
+    this.newtouchesarr = []
+     for (var i = 0; i < touchesarr.length; i++) {
+      context.beginPath()
+      context.arc(touchesarr[i].x, touchesarr[i].y, 30, 0, 2 * Math.PI)
+      context.setFillStyle(colorarr[i])
+      context.fill()
+      context.stroke()
+       this.newtouchesarr.push({ x: touchesarr[i].x, y: touchesarr[i].y,color: colorarr[i]})
+    }
+    context.draw()
+    this.contextdata = context
+  },
+  bindtouchstart(e){
+    const context = this.contextdata
+    const colorarr = ["red", "#ff0", "#f0f", "#888888", "#ff9632", "#381100", "#00c777","##00b26a"] 
+    for (var i = 0; i < e.touches.length; i++ ){
+      context.beginPath()
+      context.arc(e.touches[i].x, e.touches[i].y, 30, 0, 2 * Math.PI)
+      context.setFillStyle(colorarr[i])
+      context.fill()
+      context.stroke()
+    }
+    context.draw()
+  },
+  bindstart(){
+    console.log(this.newtouchesarr)
+    const context = this.contextdata
+    const colorarr = []
+    for (var q = 0 ; q < this.newtouchesarr.length;q++){
+      colorarr.push(this.newtouchesarr[q].color)
+    }
+
+
+    var i = 10
+    var peoplenum = this.newtouchesarr.length - 1
+    var time = setInterval(()=>{
+      if(i <= 0){
+        clearInterval(time)
+      }
+      for (var q = 0; q < this.newtouchesarr.length; q++) {
+        this.newtouchesarr[q].color = colorarr[q]
+      }
+
+      this.newtouchesarr[peoplenum].color = "#000"
+      this.changecolor(this.newtouchesarr)
+      if (peoplenum <= 0){
+        peoplenum = this.newtouchesarr.length
+      }
+      peoplenum--
+      i--
+    },1000)
+
+  },
+  changecolor(newtouchesarr){
+    const context = this.contextdata
+    for (var i = 0; i < newtouchesarr.length; i++) {
+      context.beginPath()
+      context.arc(newtouchesarr[i].x, newtouchesarr[i].y, 30, 0, 2 * Math.PI)
+      context.setFillStyle(newtouchesarr[i].color)
+      context.fill()
+      context.stroke()
+    }
+    context.draw()
+  }
+})

@@ -1,0 +1,35 @@
+<!--pages/activity/activity.wxml-->
+<component-topnav inner-title="聚起来" is-show-back="false" to-home="false"></component-topnav> 
+<scroll-view scroll-y class="box" style="height:calc(100vh - {{height}}px - {{titleBarHeight}}px - 140rpx)">
+<block wx:for="{{activity}}" wx:key="key">
+    <view class="activitybox">
+      <navigator
+      hover-class="none"
+        url="../activitydetails/activitydetails?id={{item.id}}&creator={{item.creator}}&join={{item.join}}"
+      >
+        <view class="image">
+        {{item.type}}
+        </view>
+        <view class="msg">
+          <label class="dis">{{item.subject}}</label>
+          <label class="time">
+            <label></label>
+            <text >{{item.starttimestr}}</text> 
+          </label>
+          <label class="site">{{item.addrname}}</label>
+        </view>
+        <view class="cb"></view>
+        <view class="hint">
+          <label>
+              <label style="background-image: url('http://www.89yxing.top/images/people.png')"></label>
+              <text>{{item.peoples}}</text> 
+          </label>
+          <label>
+              <label style="background-image: url('http://www.89yxing.top/images/comment1.png')"></label>
+              <text>{{item.news}}</text> 
+          </label>
+        </view>
+      </navigator>
+    </view>
+  </block>
+</scroll-view>

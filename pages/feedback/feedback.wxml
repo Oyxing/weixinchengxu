@@ -1,0 +1,16 @@
+<!--pages/feedback/feedback.wxml-->
+<component-topnav inner-title="意见反馈" to-home="false" is-show-back="true"></component-topnav> 
+<scroll-view class="box">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <textarea name="feedback" placeholder="意见反馈" auto-focus />
+    </view>
+    <view class="contact">
+      <view class="section__title">请输入 联系方式 （选填）</view>
+      <input name="contact" type="number" />
+    </view>
+    <view class="submit">
+      <button form-type="submit" disabled="{{btndisabled}}">提 交 反 馈</button>
+    </view>
+  </form>
+</scroll-view>

@@ -1,0 +1,14 @@
+<!--pages/participate/participate.wxml-->
+<component-topnav inner-title="参与人" to-home="false" is-show-back="true"></component-topnav> 
+<view class="box">
+  <view class="details" wx:for="{{particpatedata}}" wx:key="key">
+        <label class="img" style="background-image: url({{item.avatarUrl}})"></label>
+        <text>
+          {{item.nickName}}
+        </text>
+        <label class="initiator">
+        {{item.initiator?"发起人":"参与人"}}
+        </label>
+  </view>
+
+</view>

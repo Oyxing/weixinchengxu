@@ -1,0 +1,119 @@
+
+const app = getApp()
+Component({
+  properties: {
+    // 这里定义了innerText属性，属性值可以在组件使用时指定
+    innerTitle: {
+      type: String,
+      value: '头部标题'
+    },
+    isShowBack: {
+      type: String,
+      value: "true"
+    },
+  },
+  data: {
+    // 这里是一些组件内部数据
+    height: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight,
+    activity:[
+     
+    ]
+  },
+  attached() {
+    var Currenttime = new Date()
+    const seft = this
+    var overactivity = []
+    var marchactivity = []
+    //  从本地缓存中 取值
+    wx.getStorage({
+      key: 'activity',
+      success(res) {
+        console.log("res.data")
+        console.log(res.data)
+        var data = res.data[0]
+        marchactivity = []
+        overactivity = []
+        for (var key in data){
+          // starttime
+          if (data[key].activitybool){
+            marchactivity.push(data[key])
+          }else{
+            overactivity.push(data[key])
+          }
+        }
+        if (marchactivity.length > 0){
+          seft.setData({
+            activity: app.bubbleSort(marchactivity)
+          })
+        }else{
+          seft.setData({
+            activity: app.bubbleSort(overactivity)
+          })
+        }
+      }
+    })
+    // 在组件实例进入页面节点树时执行
+    // 登录 直接获取
+    var openid = ""
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        const json = {
+          url: 'http://10.1.1.172/getopenid',
+          data: {
+            nickName: app.globalData.userInfo.nickName,
+            avatarUrl: app.globalData.userInfo.avatarUrl
+          },
+          showcode: true
+        }
+        app.getAjax(json, (res) => {
+          openid = res.data.msg.openid
+          const json = {
+            url: 'http://10.1.1.172/getAllInfo',
+            data: {
+              openid: res.data.msg.openid,
+            },
+            method:"GET",
+            showcode: false
+          }
+          app.getAjax(json, (res) => {
+            marchactivity = []
+            overactivity = []
+            for (var key in res.data.msg){
+              res.data.msg[key]["starttimestr"] = app.timelayout(res.data.msg[key].starttime)
+              res.data.msg[key]["news"] = 1
+              if (res.data.msg[key].starttime > (Date.parse(Currenttime) / 1000 + 300)) {
+                res.data.msg[key]["activitybool"] = true
+                marchactivity.push(res.data.msg[key])
+              } else {
+                res.data.msg[key]["activitybool"] = false
+                overactivity.push(res.data.msg[key])
+              }
+            }
+            if (marchactivity.length > 0) {
+              seft.setData({
+                activity: app.bubbleSort(marchactivity)
+              })
+            } else {
+              seft.setData({
+                activity: app.bubbleSort(overactivity)
+              })
+            }
+            // 本地存储
+            var activity = wx.getStorageSync('activity') || []
+            activity.unshift(app.bubbleSort(res.data.msg))
+            wx.setStorageSync('activity', activity)
+          })
+        })
+      }
+    })
+  },
+  detached() {
+    // 在组件实例被从页面节点树移除时执行
+  },
+  methods: {
+    // 这里是一个自定义方法
+  
+  }
+})

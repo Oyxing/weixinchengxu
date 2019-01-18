@@ -1,0 +1,74 @@
+
+const app = getApp()
+Component({
+  properties: {
+    // 这里定义了innerText属性，属性值可以在组件使用时指定
+    innerTitle: {
+      type: String,
+      value: '头部标题'
+    },
+    isShowBack: {
+      type: String,
+      value: "true"
+    },
+  },
+  data: {
+    // 这里是一些组件内部数据
+    height: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight,
+    activity:[
+      {
+       
+        id:7,
+        type:1,
+        creator: 1,
+        join: 1,
+        subject:"主题",
+        starttime: 1547454046,
+        starttimestr: app.timelayout(1547454046),
+        address:"位置",
+        addrname: "目的地",
+        peoples:"2",
+        news:"2"
+      },
+      {
+
+        id: 8,
+        type: 2,
+        creator: 0,
+        join: 1,
+        subject: "主题",
+        starttime: 1547454046,
+        starttimestr: app.timelayout(1547454046),
+        address: "位置",
+        addrname: "目的地",
+        peoples: "2",
+        news: "2"
+      },
+      {
+
+        id: 11,
+        type: 3,
+        creator: 0,
+        join: 0,
+        subject: "主题",
+        starttime: 1547454046,
+        starttimestr: app.timelayout(1547454046),
+        address: "位置",
+        addrname: "目的地",
+        peoples: "2",
+        news: "2"
+      }
+    ]
+  },
+  attached() {
+    // 在组件实例进入页面节点树时执行
+  },
+  detached() {
+    // 在组件实例被从页面节点树移除时执行
+  },
+  methods: {
+    // 这里是一个自定义方法
+  
+  }
+})

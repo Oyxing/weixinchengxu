@@ -1,0 +1,20 @@
+<!--pages/swiper/swiper.wxml-->
+<view class="box" style="margin-top:{{titleBarHeight}}px">
+  <swiper
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+>
+  <block wx:for="{{imgurl}}" wx:key="key">
+    <navigator
+      url="../actibityform/actibityform?type={{item.type}}"
+    >
+      <swiper-item style="{{item.background}}">
+      {{item.type}}
+      </swiper-item>
+    </navigator>
+  </block>
+</swiper>
+
+</view>

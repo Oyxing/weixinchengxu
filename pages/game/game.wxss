@@ -1,0 +1,32 @@
+/* pages/game/game.wxss */
+.box{
+  background: #000;
+}
+.bindstart {
+  position: fixed;
+  bottom: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius:50%;
+  left: 0rpx;
+  right: 0rpx;
+  margin: auto;
+  background: #dc4c40;
+  font-size: 30rpx;
+  text-align: center;
+  line-height:160rpx;
+  z-index: 999;
+}
+.clearstart{
+ position: fixed;
+  bottom: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius:50%;
+  right: 30rpx;
+  background: #dc4c40;
+  font-size: 30rpx;
+  text-align: center;
+  line-height:160rpx;
+  z-index: 999;
+}

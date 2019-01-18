@@ -1,1 +1,78 @@
 /* pages/activity/activity.wxss */
+.box{
+  width: 100%;
+  background: #f3f2f7;
+}
+.box .activitybox{
+  position: relative;
+  border-radius: 40rpx;
+  background-color: #fff;
+  margin: 20rpx 30rpx;
+  box-shadow: 0rpx 0rpx 10rpx 10rpx #ccc;
+  font-size: 30rpx;
+  color: #888888;
+}
+
+.box .activitybox .image{
+  width: 100%;
+  height: 200rpx;
+  padding: 0rpx;
+  margin: 0rpx;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.box .activitybox .msg ,.box .activitybox .hint {
+  padding: 10rpx 20rpx 5rpx 20rpx;
+}
+
+.box .activitybox .msg .dis{
+  display: inline-block;
+  width: 40%;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+} 
+
+.box .activitybox .msg .time{
+  float: right;
+}
+.box .activitybox .msg .time label{
+    float: left;
+    width: 32rpx;
+    height: 32rpx;
+    background-image: url("http://www.89yxing.top/images/time.png");
+    background-repeat: no-repeat;
+    background-size:100%;
+    margin-right: 16rpx;
+    margin-top: 4rpx;
+}
+
+.box .activitybox .msg .site{
+  display: inline-block;
+  width: 100%;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.box .activitybox .hint label{
+  display: inline-block;
+}
+.box .activitybox .hint label label{
+  float: left;
+  width: 32rpx;
+  height: 32rpx;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: 10rpx;
+}
+.box .activitybox .hint label text{
+  display: inline-block;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  line-height: 50rpx;
+}
+.box .activitybox::after{
+  clear: both;
+}

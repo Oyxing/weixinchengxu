@@ -1,9 +1,5 @@
 <!--pages/user/home.wxml-->
-<component-topnav inner-title="团起来" is-show-back="false"></component-topnav> 
-<view class="homebox">
- <navigator
-    url="../actibityform/actibityform"
-  >
-    填写信息
-  </navigator>
-</view>
+<component-topnav inner-title="聚起来" to-home="false" is-show-back="false"></component-topnav> 
+<scroll-view scroll-y="{{false}}" class="homebox" style="height:calc(100vh - {{height}}px - {{titleBarHeight}}px - 140rpx)">
+    <component-swiper></component-swiper>
+</scroll-view>
