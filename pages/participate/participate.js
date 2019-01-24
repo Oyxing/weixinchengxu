@@ -6,16 +6,7 @@ Page({
    */
   data: {
       particpatedata:[
-        {
-          nickName: "oyx",
-          avatarUrl:"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ61QG8ib6VQKaV58VuWtX8Liamibzt02Ae5nHgRGHgiaKqkF8hKvnHsM3S38rQE9EBcViabn8DPyOP1Sw/132",
-          initiator:false
-        },
-        {
-          nickName: "oyx",
-          avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJ61QG8ib6VQKaV58VuWtX8Liamibzt02Ae5nHgRGHgiaKqkF8hKvnHsM3S38rQE9EBcViabn8DPyOP1Sw/132",
-          initiator: true
-        }
+       
       ]
   },
 

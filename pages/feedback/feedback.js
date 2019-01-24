@@ -12,7 +12,7 @@ Page({
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var json = {
-      url: "http://117.34.73.112/AddUserFeedback ",
+      url: app.globalData.hettpsip +"/AddUserFeedback ",
       data: {
         openid: app.globalData.openid,
         content: e.detail.value.feedback,

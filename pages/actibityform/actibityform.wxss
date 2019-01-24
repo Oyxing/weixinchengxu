@@ -5,9 +5,9 @@
   background: #f3f2f7;
 }
 .actibityformbox .image{
-  width: 80%;
+  width: 92%;
   height: 130px;
-  margin:20rpx 10%;
+  margin:20rpx 4%;
   text-align: center;
 }
 .actibityformbox .image .slide-image{
@@ -28,11 +28,8 @@
 }
 .formbox .formimg{
   float: left;
-  width: 50rpx;
-  height: 50rpx;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  margin-top: 5rpx;
+  font-size:55rpx;
+  color: #515151;
 }
 .formbox .formtitle{
   margin-left: 20rpx;

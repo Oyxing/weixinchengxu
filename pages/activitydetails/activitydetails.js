@@ -6,10 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imageip: app.globalData.imageip,
     image: [
-      "http://www.89yxing.top/images/meal1.png",
-      "http://www.89yxing.top/images/song1.png",
-      "http://www.89yxing.top/images/custom1.png"
+      app.globalData.imageip+"/meal1.png",
+      app.globalData.imageip+"/song1.png",
+      app.globalData.imageip+"/custom1.png"
     ],
     showBack:true,
     whopaybool:false,
@@ -33,15 +34,28 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
-    this.setData({
-      showBack: options.from == 1?true:false
-    })
-    this.inviteid = options.id
+    console.log("options")
+    console.log(options)
+    if (options.scene) {
+      this.inviteid = options.scene
+      this.setData({
+        showBack: false
+      })
+    } 
+    if (options.from){
+      this.setData({
+        showBack: options.from == 1 ? true : false
+      })
+    }
+    if (options.id){
+      this.inviteid = options.id
+    }
     this.getRestaurant()
     this.selComment()
     wx.showLoading({
       title: '加载中',
     })
+    console.log(this.inviteid)
   },
   onShow(){
     var pages = getCurrentPages()
@@ -157,7 +171,7 @@ Page({
   //  查询评论
   selComment() {
     var json = {
-      url: "http://117.34.73.112/SelComment",
+      url: app.globalData.hettpsip + "/SelComment",
       method: "GET",
       data: {
         inviteid: this.inviteid
@@ -194,7 +208,7 @@ Page({
       success: (res) => {
           if (res.confirm) {
             var json = {
-              url: "http://117.34.73.112/DelComment",
+              url: app.globalData.hettpsip + "/DelComment",
               data: {
                 id: e.target.dataset.delid
               }
@@ -302,7 +316,7 @@ Page({
       ctx.fillText('地点', 30, 205)
       ctx.setFillStyle('#e5784a')
       ctx.setTextAlign('right')
-      ctx.fillText(this.data.activit.addrname, width - 20, 205)
+      ctx.fillText(this.data.activit.addrname.split('(')[0], width - 20, 205)
       ctx.restore()
       ctx.setTextAlign('#888888')
       ctx.moveTo(30, 215)
@@ -310,29 +324,46 @@ Page({
       ctx.setLineWidth(0.9)
       ctx.stroke()
       ctx.restore()
-      wx.downloadFile({
-        url: 'http://www.89yxing.top/images/qrcode.png',
-        success(res) {
-          ctx.beginPath()
-          ctx.setFillStyle('#ff0')
-          ctx.arc(width / 2, 400, 10, 0, 2 * Math.PI)
-          ctx.drawImage(res.tempFilePath, width / 2 / 2, 240, 170, 170)
-          ctx.restore()
-          // 长按扫描
-          ctx.setFillStyle('#000')
-          ctx.setTextAlign('center')
-          ctx.fillText('长按或扫描查看全部内容', width / 2, 440)
-          // 介绍
-          ctx.setFillStyle('#888888')
-          ctx.setFontSize(14)
-          ctx.setTextAlign('center')
-          ctx.fillText('微信小程序:组局达人', width / 2, 480)
-          ctx.draw()
+      var pages = getCurrentPages()
+      var currentPage = pages[pages.length - 1]    //获取当前页面的对象
+      var url = currentPage.route    //当前页面url
+      const json = {
+        url: app.globalData.hettpsip + "/QRcode",
+        data:{
+          page: url,
+          scene: this.inviteid
         }
+      }
+      app.getAjax(json,(resimg)=>{
+        console.log("app.globalData.imageip + resimg.data.msg")
+        console.log(app.globalData.imageip +"/"+ resimg.data.msg)
+          wx.downloadFile({
+            url: app.globalData.imageip + "/" + resimg.data.msg,
+            success(res) {
+              ctx.beginPath()
+              ctx.setFillStyle('#ff0')
+              ctx.arc(width / 2, 400, 10, 0, 2 * Math.PI)
+              ctx.drawImage(res.tempFilePath, width / 2 / 2, 240, 170, 170)
+              ctx.restore()
+              // 长按扫描
+              ctx.setFillStyle('#000')
+              ctx.setTextAlign('center')
+              ctx.fillText('长按或扫描查看全部内容', width / 2, 440)
+              // 介绍
+              ctx.setFillStyle('#888888')
+              ctx.setFontSize(14)
+              ctx.setTextAlign('center')
+              ctx.fillText('微信小程序:组局达人', width / 2, 480)
+              ctx.draw()
+            }
+          })
+          setTimeout(() => {
+            this.canvasFilePath(width, height)
+          }, 500)
       })
-      setTimeout(()=>{
-        this.canvasFilePath(width, height)
-      },500)
+
+
+      
   },
   canvasFilePath(width, height){
     var seft = this

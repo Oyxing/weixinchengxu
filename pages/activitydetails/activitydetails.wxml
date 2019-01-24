@@ -4,13 +4,14 @@
     <!-- <button class="share" open-type='openSetting' style="top:calc({{height}}px + 50px)">
         分享
     </button> -->
-    <!-- <view class="share" bindtap='bindshare' style="top:calc({{height}}px + 50px)">
-        分享
-    </view> -->
+    <view class="share iconfont icon-fenxiang" wx:if="{{operatebool}}" bindtap='bindshare' style="top:calc({{height}}px + 50px)">
+    </view>
     <navigator  
       hover-class="none"
       url='../index/index?pitchid=0&name=activity'
-      class="goback" style="top:calc({{titleBarHeight}}px + 50px);background-image: url('http://www.89yxing.top/images/goback.png')">
+      class="goback iconfont icon-goback" 
+      style="top:calc({{height}}px + {{titleBarHeight}}px + 20px);font-size:50rpx;"
+      >
     <!-- goback -->
     </navigator>
     <view class="img">
@@ -25,25 +26,25 @@
     </view>
     <view class="imgico site">
       <view>
-          <label style="background-image: url('http://www.89yxing.top/images/time1.png')"></label>
+          <label class="iconfont icon-time"></label>
           <text>{{activit.starttimestr}}</text>
       </view>
       <view bindtap='getplace'>
-            <label style="background-image: url('http://www.89yxing.top/images/site1.png')"></label>
+            <label class="iconfont icon-location"></label>
             <text>{{activit.addrname}}</text>
       </view>
     </view>
     <view class="imgico limit"> 
       <view wx:if="{{activit.number}}">
-          <label style="background-image: url('http://www.89yxing.top/images/people1.png')"></label>
+          <label class="iconfont icon-limitpeople" ></label>
           <text>人数限定:{{activit.number}}</text>
       </view>
       <view wx:if="{{activit.aa}}">
-          <label style="background-image: url('http://www.89yxing.top/images/money1.png')"></label>
+          <label class="iconfont icon-money" ></label>
           <text>是否AA:{{activit.aa?"是":"否"}}</text>
-      </view>
+      </view> 
       <view>
-          <label style="background-image: url('http://www.89yxing.top/images/remark.png')"></label>
+          <label class="iconfont icon-remark"></label>
           <text>备注说明:{{activit.remark}}</text>
       </view>
     </view>
@@ -52,9 +53,9 @@
        hover-class="none"
         url='../map/map?id={{activit.id}}&starttime={{activit.starttime}}'
       >
-          <label class="imgico"  style="background-image: url('http://www.89yxing.top/images/site1.png')"></label>
+          <label class="imgico iconfont icon-location" style="line-height: 60rpx;font-size:60rpx;margin-right:20rpx;"></label>
           <text class="peoplesh">人都去哪里</text>
-          <label style="background-image: url('http://www.89yxing.top/images/page.png')"></label>
+          <label style="background-image: url('{{imageip}}/page.png')"></label>
       </navigator>
     </view>
     <view class="map whopay" wx:if="{{whopaybool}}"> 
@@ -72,7 +73,7 @@
         hover-class="none"
         url="../game/game"
       >
-          <label class="imgico"  style="background-image: url('http://www.89yxing.top/images/game.png')"></label>
+          <label class="imgico iconfont icon-game" style="line-height: 50rpx;"></label>
           <text>娱乐看谁买单</text>
         </navigator>
     </view>
@@ -81,20 +82,20 @@
       hover-class="none"
       url="../participate/participate?participatestr={{participatestr}}"
       style='border-bottom:0.5px solid rgba(204, 204, 204, 0.473);;padding-bottom:10px;'>
-        <label class="imgico" style="background-image: url('http://www.89yxing.top/images/people1.png')"></label>
+        <label class="imgico iconfont icon-people" ></label>
         <text>{{activit.userinfo.length}}人参与</text>
-        <label style="background-image: url('http://www.89yxing.top/images/page.png')"></label>
+        <label style="background-image: url('{{imageip}}/page.png')"></label>
       </navigator>
       <block wx:for="{{participate}}" wx:key="key">
           <view class="participantdetails">
-            <label class="imgico" style="background-image: url({{item.avatarUrl}})"></label>
+            <label class="imgico " style="background-image: url({{item.avatarUrl}})"></label>
             <text class="text">{{item.nickName}}</text>
           </view>
       </block>
     </view>
     <view class="section">
       <view style='border-bottom:0.5px solid rgba(204, 204, 204, 0.473);;padding-bottom:10px;'>
-        <label class="imgico" style="background-image: url('http://www.89yxing.top/images/comment.png')"></label>
+        <label class="imgico  iconfont icon-comment1"></label>
         <text>评论 （{{commentdata.length}}条）</text>
         <label>
             <navigator
@@ -125,19 +126,19 @@
       wx:if="{{initiatorbool}}"
       url="../actibityupform/actibityupform?actibityid={{activit.id}}&participatestr={{participatedatastr}}"
     >
-      <label style="background-image: url('http://www.89yxing.top/images/editor.png')"></label>
+      <label class="iconfont icon-redact" ></label>
       <text>编辑</text>
     </navigator>
     <view class="classdef" wx:if="{{!initiatorbool && !repeal}}" bindtap='joinactiviy'>
-      <label style="background-image: url('http://www.89yxing.top/images/join.png')"></label>
+      <label class="iconfont icon-join"></label>
       <text>参加</text>
     </view> 
-    <view class="classdef" wx:if="{{repeal}}" bindtap='abolishactiviy'>
-      <label style="background-image: url('http://www.89yxing.top/images/repeal.png')"></label>
+    <view class="classdef " wx:if="{{repeal}}" bindtap='abolishactiviy'>
+      <label class="iconfont icon-repeal"></label>
       <text>取消</text>
     </view>
-    <button open-type='share' bindtap='message'>
-      <label style="background-image: url('http://www.89yxing.top/images/staff1.png')"></label>
+    <button open-type='share' bindtap='message'> 
+      <label  class="iconfont icon-staff"></label>
       <text>邀请好友</text>
     </button>
   </view>

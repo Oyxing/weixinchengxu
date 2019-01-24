@@ -7,10 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imageip:app.globalData.imageip,
     image:[
-      "http://www.89yxing.top/images/meal1.png",
-      "http://www.89yxing.top/images/song1.png",
-      "http://www.89yxing.top/images/custom1.png"
+      app.globalData.imageip+"/meal1.png",
+      app.globalData.imageip +"/song1.png",
+      app.globalData.imageip +"/custom1.png"
     ],
     btndisabled:false,
     type:"",
@@ -184,7 +185,10 @@ Page({
       e.detail.value["longitude"] = longitude;
       e.detail.value["nickName"] = nickName;
       e.detail.value["avatarUrl"] = avatarUrl;
-      e.detail.value["starttime"] = Date.parse(e.detail.value.date +" " + e.detail.value.time) / 1000;
+      var datastr = e.detail.value.date + " " + e.detail.value.time
+      var format = datastr.replace(/-/g, '/')
+      var countDown = Date.parse(new Date(format))
+      e.detail.value["starttime"] = countDown / 1000;
       e.detail.value["duration"] = e.detail.value.duration ? e.detail.value.duration:23
     if (e.detail.value.address && e.detail.value.remark && e.detail.value.subject){
         this.setData({
@@ -214,6 +218,8 @@ Page({
     var openid = app.globalData.openid
     const seft = this
     var resdatamsg
+    console.log("跳转222")
+    console.log(json)
     app.getAjax(json, (res) => {
       var resdatamsg = res.data.msg
       for (var i = 0; i < resdatamsg.userinfo.length; i++) {

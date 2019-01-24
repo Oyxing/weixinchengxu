@@ -4,7 +4,6 @@
   indicator-active-color="#ff9632"
   indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}"
-  interval="{{interval}}"
   duration="{{duration}}"
 >
   <block wx:for="{{imgurl}}" wx:key="key">

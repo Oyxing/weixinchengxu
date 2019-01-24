@@ -10,10 +10,10 @@
     </view>
     <view class="usermotto" >
       <view wx:for="{{usercolumn}}" style="margin-top:10px;" wx:key="{{key}}" data-url="{{item.url}}" bindtap='nsvto'>
-          <label style="background-image:url({{item.img}});background-repeat:no-repeat"></label>
+          <label style="background-image:url({{item.img}})"></label>
           <label>{{item.litle}}</label>
           <text wx:if="{{item.version}}" style="float:right;margin-right:10px; font-size: 28rpx;color: #8f908a;line-height: 35px;">{{item.version}}</text>
-          <label style="background-image:url(http://www.89yxing.top/images/page.png);background-repeat:no-repeat;"></label>
+          <label style="background-image:url({{imageip}}/page.png);background-repeat:no-repeat;"></label>
       </view>
     </view>
 </view>

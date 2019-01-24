@@ -15,34 +15,35 @@ Component({
   data: {
     // 这里是一些组件内部数据
     // 用户信息
+    imageip: app.globalData.imageip,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     usercolumn:[
       {
         litle:"版本号",
-        img:"http://www.89yxing.top/images/set.png",
+        img: app.globalData.imageip+"/set.png",
         url:"",
         version:"1.0.1"
       },
       // {
       //   litle: "客服",
-      //   img: "http://www.89yxing.top/images/service.png",
+      //   img: app.globalData.imageip+"/service.png",
       //   url: ""
       // },
       {
         litle: "意见反馈",
-        img: "http://www.89yxing.top/images/feedback.png",
+        img: app.globalData.imageip + "/feedback.png",
         url: "../feedback/feedback"
       },
       // {
       //   litle: "我的活动",
-      //   img: "http://www.89yxing.top/images/activity2.png",
+      //   img: app.globalData.imageip+"/activity2.png",
       //   url: ""
       // },
       // {
       //   litle: "我的中奖记录",
-      //   img: "http://www.89yxing.top/images/record.png",
+      //   img: app.globalData.imageip+"/record.png",
       //   url: ""
       // },
     ]

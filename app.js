@@ -1,9 +1,12 @@
 //app.js
 App({
+
   onLaunch: function (options) {
-    var hettpsip = "http://117.34.73.112"
+    var hettpsip = "https://js.idcyw.cn"
+    var imageip = "https://js.idcyw.cn/static"
     // var hettpsip = "http://10.1.1.172"
     this.globalData.hettpsip = hettpsip
+    this.globalData.imageip = imageip
     wx.clearStorage()
     // 获取 顶部高度
     var that = this
@@ -33,8 +36,6 @@ App({
     // 登录状态查看
     wx.checkSession({
       success(res) {
-        console.log("登录状态查看")
-        console.log(res)
         // session_key 未过期，并且在本生命周期一直有效
       },
       fail() {
@@ -101,11 +102,6 @@ App({
                       res.data.msg[key]["state"] = 1
                     }
                     res.data.msg[key]["starttimestr"] = this.timelayout(res.data.msg[key].starttime)
-                    if ((Date.parse(Currenttime) / 1000) - res.data.msg[key].starttime > durationtime) {
-                      res.data.msg[key]["activitybool"] = true
-                    } else {
-                      res.data.msg[key]["activitybool"] = false
-                    }
                   }
                   // 展示本地存储能力
                   var activity = wx.getStorageSync('activity') || []
@@ -124,6 +120,7 @@ App({
     that.funAjax = this.getAjax
     that.timelayout = this.timelayout
   },
+ 
   globalData: {
     userInfo: null
   },

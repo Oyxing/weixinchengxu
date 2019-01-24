@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imageip: app.globalData.imageip,
     statusBarHeight: app.globalData.statusBarHeight,
     titleBarHeight: app.globalData.titleBarHeight,
   },

@@ -6,23 +6,22 @@ Component({
   data: {
     indicatorDots: true,
     autoplay: false,
-    interval: 5000,
-    duration: 1000,
+    duration: 500,
     height: app.globalData.statusBarHeight,
-    titleBarHeight: app.globalData.titleBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight, 
     imgurl:[
       {
-        imageurl: "http://www.89yxing.top/images/meal.png",
+        imageurl: app.globalData.imageip + "/meal.png",
         background:"#59b6e6",
         type:"1"
       },
       {
-        imageurl: "http://www.89yxing.top/images/song.png",
+        imageurl: app.globalData.imageip + "/song.png",
         background:"#ff0",
         type: "2"
       },
       {
-        imageurl: "http://www.89yxing.top/images/custom.png",
+        imageurl: app.globalData.imageip + "/custom.png",
         background: "#e26936",
         type: "3"
       }

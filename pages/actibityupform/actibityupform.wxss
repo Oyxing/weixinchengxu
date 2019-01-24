@@ -29,11 +29,7 @@
 }
 .formbox .formimg{
   float: left;
-  width: 50rpx;
-  height: 50rpx;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  margin-top: 5rpx;
+  font-size:60rpx;
 }
 .formbox .formtitle{
   margin-left: 20rpx;

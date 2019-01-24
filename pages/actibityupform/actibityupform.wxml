@@ -1,5 +1,5 @@
 <!--pages/actibityform/actibityform.wxml-->
-<component-topnav inner-title="添加活动" to-home="false" is-show-back="true"></component-topnav> 
+<component-topnav inner-title="编辑活动" to-home="false" is-show-back="true"></component-topnav> 
 <scroll-view scroll-y style="height:calc(100vh - {{someData.statusBarHeight}}px - {{someData.titleBarHeight}}px)"  class="actibityformbox">
     <view class="image">
      <image src="{{image[type - 1]}}" class="slide-image" />
@@ -7,14 +7,14 @@
    <form bindsubmit="formSubmit" bindreset="formReset"> 
       <view class="form">
           <view class="formbox">
-            <label class="formimg" style="background-image: url('http://www.89yxing.top/images/theme.png')"></label>
+             <label class="formimg iconfont icon-theme" ></label>
             <label class="formtitle">主题</label>
             <label class="frommsg">
               <input name="subject" placeholder="活动主题" value="{{subject}}"/>
             </label>
           </view>    
           <view class="formbox"> 
-            <label class="formimg" style="background-image: url('http://www.89yxing.top/images/time.png')"></label>
+            <label class="formimg iconfont icon-time"></label>
             <label class="formtitle">时间</label>
             <label class="frommsg">
               <picker name="time" mode="time" value="{{time}}" start="{{timestart}}" bindchange="bindTimeChange">
@@ -31,7 +31,7 @@
             </label>
           </view>   
           <view class="formbox">
-            <label class="formimg" style="background-image: url('http://www.89yxing.top/images/site.png')"></label>
+             <label class="formimg iconfont icon-location"></label>
             <label class="formtitle">地点</label>
             <label class="frommsg" bindtap="getmap">
                 <text >{{sitedata.name}}</text>
@@ -45,11 +45,11 @@
       <view class="moreset">
           <view class="Options" bindtap="bindtapOptions">
               <text>更多选项</text>
-              <label style="background-image: url('http://www.89yxing.top/images/direction.png')" animation="{{animationOption}}"></label> 
+              <label class="iconfont icon-direction"  animation="{{animationOption}}"></label> 
           </view>
           <view wx:if="{{optionsbool}}">
             <view class="formbox">
-                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/timelen.png')"></label>
+                 <label class="formimg iconfont icon-timelen"></label>
                 <label class="formtitle">时长</label>
                 <label class="frommsg">
                   <picker name="duration" mode="selector" bindchange="bindDurationChange" value="{{index}}" range="{{array}}">
@@ -58,21 +58,21 @@
                 </label>
             </view> 
             <view class="formbox">
-                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/money.png')"></label>
+                 <label class="formimg iconfont icon-money"></label>
                 <label class="formtitle">AA</label>
                 <label class="frommsg">
                     <switch name="aa" checked="{{aa?true:false}}" />
                 </label>
             </view>     
             <view class="formbox">
-                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/tag.png')"></label>
+                <label class="formimg iconfont icon-tag"></label>
                 <label class="formtitle">参加后不允许取消</label>
                 <label class="frommsg">
                     <switch name="allow" checked="{{allow?true:false}}"/>
                 </label>
             </view>   
             <view class="formbox">
-                <label class="formimg" style="background-image: url('http://www.89yxing.top/images/people.png')"></label>
+                 <label class="formimg iconfont icon-limitpeople"></label>
                 <label class="formtitle">限定人数</label>
                 <label class="frommsg">
                     <switch bindchange="peoplechange" checked="{{number?true:false}}"/>

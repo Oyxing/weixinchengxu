@@ -14,7 +14,7 @@ Page({
   },
   formSubmit(e) {
       var json = {
-        url:"http://117.34.73.112/AddComment",
+        url: app.globalData.hettpsip+"/AddComment",
         data:{
           openid: app.globalData.openid,
           content: e.detail.value.feedback,

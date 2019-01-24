@@ -13,10 +13,11 @@ Component({
     },
   },
   data: {
+    imageip: app.globalData.imageip,
     image: [
-      "http://www.89yxing.top/images/nostarted.png",
-      "http://www.89yxing.top/images/proceed.png",
-      "http://www.89yxing.top/images/over.png"
+      app.globalData.imageip+"/nostarted.png",
+      app.globalData.imageip +"/proceed.png",
+      app.globalData.imageip +"/over.png"
     ],
     // 这里是一些组件内部数据
     height: app.globalData.statusBarHeight,
@@ -40,10 +41,10 @@ Component({
         overactivity = []
         for (var key in data){
           // starttime
-          if (data[key].activitybool){
-            marchactivity.push(data[key])
-          }else{
+          if (data[key]["state"] == 2) {
             overactivity.push(data[key])
+          } else {
+            marchactivity.push(data[key])
           }
         }
         if (marchactivity.length > 0){
@@ -106,12 +107,10 @@ Component({
                 res.data.msg[key]["state"] = 1
               }
               res.data.msg[key]["starttimestr"] = app.timelayout(res.data.msg[key].starttime)
-              if ((Date.parse(Currenttime) / 1000) - res.data.msg[key].starttime > durationtime) {
-                res.data.msg[key]["activitybool"] = true
-                marchactivity.push(res.data.msg[key])
-              } else {
-                res.data.msg[key]["activitybool"] = false
+              if (res.data.msg[key]["state"] == 2){
                 overactivity.push(res.data.msg[key])
+              }else{
+                marchactivity.push(res.data.msg[key])
               }
             }
             if (marchactivity.length > 0) {

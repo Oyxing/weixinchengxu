@@ -5,9 +5,9 @@
 }
 .box .activitybox{
   position: relative;
-  border-radius: 40rpx;
+  border-radius: 20rpx;
   background-color: #fff;
-  margin: 20rpx 30rpx;
+  margin: 40rpx 30rpx;
   box-shadow: 0rpx 0rpx 10rpx 10rpx #ccc;
   font-size: 30rpx;
   color: #888888;
@@ -18,61 +18,62 @@
   height: 200rpx;
   padding: 0rpx;
   margin: 0rpx;
-  border-top-left-radius: 40rpx;
-  border-top-right-radius: 40rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 .box .activitybox .msg ,.box .activitybox .hint {
-  padding: 10rpx 20rpx 5rpx 20rpx;
+  padding: 10rpx 20rpx 20rpx 20rpx;
 }
-
-.box .activitybox .msg .dis{
-  display: inline-block;
-  width: 40%;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-} 
-
-.box .activitybox .msg .time{
-  float: right;
-}
-.box .activitybox .msg .time label{
-    float: left;
-    width: 32rpx;
-    height: 32rpx;
-    background-image: url("http://www.89yxing.top/images/time.png");
-    background-repeat: no-repeat;
-    background-size:100%;
-    margin-right: 16rpx;
-    margin-top: 4rpx;
-}
-
-.box .activitybox .msg .site{
-  display: inline-block;
-  width: 100%;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.box .activitybox .hint label{
-  display: inline-block;
-}
-.box .activitybox .hint label label{
+.dis {
   float: left;
-  width: 32rpx;
-  height: 32rpx;
-  background-repeat: no-repeat;
+  font-size: 30rpx;
+  font-weight: bold;
+  color:#000;
+  width: 49%;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.site{
+  float: right;
+  width: 49%;
+  text-align: right;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.site label{
+  display: inline-flex;
+  vertical-align: middle;
+  width: 40rpx;
+  height: 40rpx;
   background-size: 100%;
-  margin-top: 10rpx;
-}
-.box .activitybox .hint label text{
-  display: inline-block;
+  background-repeat: no-repeat;
   margin-right: 10rpx;
-  margin-left: 10rpx;
-  line-height: 50rpx;
 }
-.box .activitybox::after{
-  clear: both;
+.bottombox .people ,.bottombox .comment1{
+  display: inline-block;
+  margin-top: 15rpx;
+  margin-left: 20rpx;
+}
+.img label{
+  display: inline-flex;
+  vertical-align: middle;
+  width: 40rpx;
+  height: 40rpx;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-right: 20rpx;
+}
+.bottombox .time{
+  float: left;
+  margin-top: 10rpx;
+  width:calc(50% + 30rpx);
+}
+.bottombox text, .site text{
+  display: inline-flex;
+  vertical-align: middle;
+  font-size: 27rpx;
 }

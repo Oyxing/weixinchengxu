@@ -1,5 +1,5 @@
 <!--pages/activity/activity.wxml-->
-<component-topnav inner-title="聚起来" is-show-back="false" to-home="false"></component-topnav> 
+<component-topnav inner-title="组局达人" is-show-back="false" to-home="false"></component-topnav> 
 <scroll-view scroll-y class="box" style="height:calc(100vh - {{height}}px - {{titleBarHeight}}px - 140rpx)">
 <block wx:for="{{activity}}" wx:key="key">
     <view class="activitybox">
@@ -8,24 +8,30 @@
         url="../activitydetails/activitydetails?id={{item.id}}&from=1">
         <view class="image" style="background-image: url('{{image[item.state]}}')"></view>
         <view class="msg">
-          <label class="dis">{{item.subject}}</label>
-          <label class="time">
-            <label></label>
-            <text >{{item.starttimestr}}</text> 
-          </label>
-          <label class="site">{{item.addrname}}</label>
-        </view>
-        <view class="cb"></view>
-        <view class="hint">
-          <label>
-              <label style="background-image: url('http://www.89yxing.top/images/people.png')"></label>
-              <text>{{item.userinfo.length}}</text> 
-          </label>
-          <label>
-              <label style="background-image: url('http://www.89yxing.top/images/comment1.png')"></label>
-              <text>{{item.countnum}}</text> 
+            <label class="dis">
+              <text>活动：</text>
+            {{item.subject}}</label>
+            <label class="site">
+              <label style="background-image: url('{{imageip}}/site.png')"></label>
+              <text >{{item.addrname}}</text> 
           </label>
         </view>
+
+        <view class="bottombox hint">
+           <label class="time img">
+              <label style="background-image: url('{{imageip}}/time.png')"></label>
+              <text>{{item.starttimestr}}</text> 
+            </label>
+            <label class="people img">
+                <label style="background-image: url('{{imageip}}/people.png')"></label>
+                <text>{{item.userinfo.length}}</text> 
+            </label>
+            <label class="comment1 img">
+                <label style="background-image: url('{{imageip}}/comment1.png')"></label>
+                <text>{{item.countnum}}</text> 
+            </label>
+        </view>
+
       </navigator>
     </view>
   </block>

@@ -1,6 +1,7 @@
 const app = getApp()
 Page({
   data: {
+    imageip: app.globalData.imageip,
     // 用户信息
     userInfo: {},
     hasUserInfo: false,
@@ -11,20 +12,20 @@ Page({
       {
         name: "activity",
         litle: "活动",
-        img: "http://www.89yxing.top/images/activity.png",
-        imgtrue: "http://www.89yxing.top/images/activity1.png",
+        img: app.globalData.imageip+"/activity.png",
+        imgtrue: app.globalData.imageip +"/activity1.png",
       },
       {
         name: "home",
         litle: "首页",
-        img: "http://www.89yxing.top/images/home.png",
-        imgtrue: "http://www.89yxing.top/images/home1.png",
+        img: app.globalData.imageip +"/home.png",
+        imgtrue: app.globalData.imageip +"/home1.png",
       },
       {
         name: "user",
         litle: "我的",
-        img: "http://www.89yxing.top/images/user.png",
-        imgtrue: "http://www.89yxing.top/images/user1.png",
+        img: app.globalData.imageip +"/user.png",
+        imgtrue: app.globalData.imageip +"/user1.png",
       }
     ]
   },
